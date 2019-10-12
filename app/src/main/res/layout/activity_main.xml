@@ -7,29 +7,46 @@
     android:background="@mipmap/bg1"
     tools:context=".MainActivity" >
 
-    <Button
+    <ImageButton
         android:id="@+id/main_btn1"
-        android:layout_width="152dp"
-        android:layout_height="69dp"
-        android:layout_marginBottom="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@android:drawable/list_selector_background"
-        android:text="经验和技巧"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/mian_1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/main_btn2"
-        android:layout_width="228dp"
-        android:layout_height="77dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@android:drawable/list_selector_background"
-        android:text="道馆信息和大型比赛"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_btn1"
+        app:srcCompat="@mipmap/main_b2" />
+
+    <ImageButton
+        android:id="@+id/main_btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="@android:drawable/list_selector_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_btn2"
+        app:srcCompat="@mipmap/main_b3" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

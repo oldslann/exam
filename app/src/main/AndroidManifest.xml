@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".information"></activity>
+        <activity android:name=".matchInformation"></activity>
+        <activity android:name=".information" />
         <activity android:name=".Skill" />
         <activity android:name=".MainActivity">
             <intent-filter>
