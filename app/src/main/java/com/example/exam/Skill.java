@@ -2,11 +2,14 @@ package com.example.exam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 public class Skill extends AppCompatActivity {
+    private static String TAG="main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +20,7 @@ public class Skill extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                in1();
             }
         });
 
@@ -36,8 +38,7 @@ public class Skill extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                in3();
             }
         });
 
@@ -47,4 +48,20 @@ public class Skill extends AppCompatActivity {
 
 
     }
+    public void in1()
+    {
+        Intent config = new Intent(this, netItem.class);
+        config.putExtra("url","https://search.bilibili.com/all?keyword=潘达剑士" );
+        startActivity(config);
+        Log.i(TAG,"clicked");
+    }
+
+    public void in3()
+    {
+        Intent config = new Intent(this, netItem.class);
+        config.putExtra("url","https://search.bilibili.com/all?keyword=剑道实战" );
+        startActivity(config);
+        Log.i(TAG,"clicked");
+    }
+
 }
