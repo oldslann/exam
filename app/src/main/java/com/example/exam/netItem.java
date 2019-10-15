@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.jsoup.Jsoup;
@@ -19,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class netItem extends AppCompatActivity implements Runnable {
+public class netItem extends AppCompatActivity implements Runnable, AdapterView.OnItemClickListener {
 
     String url="";
     private  static String TAG="main";
@@ -49,6 +52,8 @@ public class netItem extends AppCompatActivity implements Runnable {
                             listItems);
                     Log.i(TAG, "listView");
                     listView.setAdapter(myAdapter);
+                    listView.setOnItemClickListener(netItem.this);
+
 
                 }
 
@@ -118,6 +123,22 @@ public class netItem extends AppCompatActivity implements Runnable {
 
 
 
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view,
+                            int position, long id) {
+
+        Object itemAtPosition = listView.getItemAtPosition(position);
+        HashMap<String,String> map = (HashMap<String, String>) itemAtPosition;
+        String url = map.get("net");
+        Log.i(TAG, "onItemClick: titleStr=" + url);
+
+
+        Intent config = new Intent(this, webc.class);
+        config.putExtra("url", url);
+        startActivity(config);
     }
 
 

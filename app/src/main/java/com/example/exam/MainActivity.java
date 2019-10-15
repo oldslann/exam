@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ImageButton btn1=findViewById(R.id.main_btn1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    public void int3()
+    private void int3()
     {
         Intent config = new Intent(this, netItem.class);
         config.putExtra("url","https://search.bilibili.com/all?keyword=66剑道选手权" );

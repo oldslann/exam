@@ -30,12 +30,13 @@ public class Skill extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             }
         });
 
 
         ImageButton btn3=findViewById(R.id.skill_btn3);
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 in3();
@@ -48,7 +49,7 @@ public class Skill extends AppCompatActivity {
 
 
     }
-    public void in1()
+    private void in1()
     {
         Intent config = new Intent(this, netItem.class);
         config.putExtra("url","https://search.bilibili.com/all?keyword=潘达剑士" );
@@ -56,10 +57,18 @@ public class Skill extends AppCompatActivity {
         Log.i(TAG,"clicked");
     }
 
-    public void in3()
+    private void in2(){
+        Intent config = new Intent(this, webc.class);
+        config.putExtra("url","https://www.bilibili.com/video/av35190395" );
+        startActivity(config);
+        Log.i(TAG,"clicked");
+
+    }
+
+    private void in3()
     {
         Intent config = new Intent(this, netItem.class);
-        config.putExtra("url","https://search.bilibili.com/all?keyword=剑道实战" );
+        config.putExtra("url","https://search.bilibili.com/all?keyword=剑道比赛" );
         startActivity(config);
         Log.i(TAG,"clicked");
     }

@@ -24,18 +24,19 @@
 
     <ImageButton
         android:id="@+id/main_btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="106dp"
+        android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@android:drawable/list_selector_background"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_btn1"
-        app:srcCompat="@mipmap/main_b2" />
+        app:srcCompat="@mipmap/main_b2g" />
 
     <ImageButton
         android:id="@+id/main_btn3"
