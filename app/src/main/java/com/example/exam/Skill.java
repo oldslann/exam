@@ -31,6 +31,7 @@ public class Skill extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                in2();
             }
         });
 
@@ -59,9 +60,10 @@ public class Skill extends AppCompatActivity {
 
     private void in2(){
         Intent config = new Intent(this, webc.class);
-        config.putExtra("url","https://www.bilibili.com/video/av35190395" );
+        config.putExtra("url", "//www.bilibili.com/video/av35190395" );
         startActivity(config);
         Log.i(TAG,"clicked");
+
 
     }
 
