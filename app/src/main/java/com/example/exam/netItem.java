@@ -1,9 +1,13 @@
 package com.example.exam;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,18 +26,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class netItem extends AppCompatActivity implements Runnable, AdapterView.OnItemClickListener {
+public class netItem extends AppCompatActivity implements Runnable, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener  {
 
     String url="";
     private  static String TAG="main";
     Handler handler;
     ListView listView;
+    ArrayList<HashMap<String, String>> listItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_net_item);
         Intent intent=getIntent();
         url=intent.getStringExtra("url");
+
         Log.i(TAG,url);
 
 
@@ -45,14 +51,16 @@ public class netItem extends AppCompatActivity implements Runnable, AdapterView.
                     listView=(ListView)findViewById(R.id.netlist);
 
 
-                    ArrayList<HashMap<String, String>> listItems = (ArrayList<HashMap<String, String>>) msg.obj;
+                    listItems = (ArrayList<HashMap<String, String>>) msg.obj;
 
                     MyAdapter myAdapter = new MyAdapter(netItem.this,
                             R.layout.list_item,
                             listItems);
                     Log.i(TAG, "listView");
                     listView.setAdapter(myAdapter);
+                    listView.setEmptyView(findViewById(R.id.nodata_net));
                     listView.setOnItemClickListener(netItem.this);
+                    listView.setOnItemLongClickListener(netItem.this);
 
 
                 }
@@ -142,5 +150,35 @@ public class netItem extends AppCompatActivity implements Runnable, AdapterView.
     }
 
 
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int position, long l) {
 
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("提示")
+                .setMessage("是否将其添加至收藏夹")
+                .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Log.i(TAG,"longclick");
+                        SharedPreferences sp=getSharedPreferences("usr_like", Activity.MODE_PRIVATE);
+                        int num=sp.getInt("num",0);
+                        Log.i(TAG,"get num"+num);
+                        num=num+1;
+                        SharedPreferences.Editor editor=sp.edit();
+                        String name= listItems.get(position).get("name");
+                        String net= listItems.get(position).get("net");
+                        editor.putString("name"+num,name);
+                        editor.putString("net"+num,net);
+                        editor.putInt("num",num);
+                        Log.i(TAG,"put num"+num);
+                        editor.apply();
+
+
+
+                    }
+                })
+                .setNegativeButton("否",null);
+        builder.create().show();
+        return true;
+    }
 }

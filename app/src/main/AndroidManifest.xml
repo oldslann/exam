@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
-
     <dist:module dist:instant="true" />
 
     <application
@@ -21,11 +20,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".usr_like"></activity>
         <activity android:name=".matchInformation" />
         <activity android:name=".information" />
         <activity android:name=".Skill" />
         <activity android:name=".netItem" />
-        <activity android:name=".webc"/>
+        <activity android:name=".webc" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

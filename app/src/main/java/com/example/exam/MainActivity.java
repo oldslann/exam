@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
+        ImageButton usr_like=findViewById(R.id.user_like1);
+        usr_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                user_like();
+            }
+        });
+
 
 
     }
@@ -73,4 +81,13 @@ public class MainActivity extends AppCompatActivity  {
 
 
     }
+
+    private void user_like()
+    {
+        Intent config = new Intent(this, usr_like.class);
+        startActivity(config);
+
+    }
+
+
 }

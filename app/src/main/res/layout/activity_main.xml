@@ -49,5 +49,17 @@
         app:layout_constraintTop_toBottomOf="@+id/main_btn2"
         app:srcCompat="@mipmap/main_b3" />
 
+    <ImageButton
+        android:id="@+id/user_like1"
+        android:layout_width="48dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@mipmap/usr_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/usr_like" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
