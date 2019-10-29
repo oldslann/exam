@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -163,6 +164,17 @@ public class netItem extends AppCompatActivity implements Runnable, AdapterView.
                         SharedPreferences sp=getSharedPreferences("usr_like", Activity.MODE_PRIVATE);
                         int num=sp.getInt("num",0);
                         Log.i(TAG,"get num"+num);
+
+                        for (int q=0;q<num;q++)
+                        {
+                            String named=sp.getString("name"+num,"");
+                            if (named.equals(listItems.get(position).get("name")))
+                            {
+                                Toast.makeText(netItem.this,"该项目之前已添加",Toast.LENGTH_SHORT).show();
+                                return;
+
+                            }
+                        }
                         num=num+1;
                         SharedPreferences.Editor editor=sp.edit();
                         String name= listItems.get(position).get("name");
